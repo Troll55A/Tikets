@@ -5,9 +5,10 @@
 /tmp
 /out-tsc
 /bazel-out
-
+/ignore
 # Node
 /node_modules
+/ignore
 npm-debug.log
 yarn-error.log
 
@@ -27,7 +28,6 @@ yarn-error.log
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
-
 # Miscellaneous
 /.angular/cache
 .sass-cache/

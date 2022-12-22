@@ -9,7 +9,7 @@ api.use(bodyParser.urlencoded({extended:true}));
 api.use(bodyParser.json());
 console.log("Rutas")
 
-const usuario = require ('./my-app/src/routes/usuario');
+const usuario = require ('./src/routes/usuario');
 api.use('/usuario',usuario)
 
 

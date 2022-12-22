@@ -3,7 +3,7 @@
 //expres ayuda a darle una estructura a node y no manejarlo con consola
 const express = require('express')
 const app = express();
-const main = require('.main');
+const main = require('./src/models/main');
 const api = require('./api')
 
 //cabeceras de acceso de http

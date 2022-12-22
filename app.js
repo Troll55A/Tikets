@@ -13,6 +13,7 @@ app.set('port', (process.env.PORT || puerto))
 main.start()
 .then(function(){
     app.start = app.listen(app.get('port'),function(){
+        console.log("app");
         console.log("ESCUCHANDO EN EL PUERTO",puerto);
     });
 });

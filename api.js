@@ -7,7 +7,7 @@ api.use(cors());
 api.options('*',cors())
 api.use(bodyParser.urlencoded({extended:true}));
 api.use(bodyParser.json());
-console.log("Rutas")
+console.log("api")
 
 const usuario = require ('./src/routes/usuario');
 api.use('/usuario',usuario)

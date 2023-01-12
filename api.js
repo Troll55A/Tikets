@@ -12,5 +12,7 @@ console.log("api")
 const usuario = require ('./src/routes/usuario');
 api.use('/usuario',usuario)
 
+const activo = require ('./src/routes/activosInventario');
+api.use('/activo',activo)
 
 module.exports = api;

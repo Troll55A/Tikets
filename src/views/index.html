@@ -1,0 +1,35 @@
+<div *ngIf="!_authGuardService.isLoggednIn()" class="login-body">
+    <div class="login-panel ui-fluid">
+        <div class="login-panel-header">
+            <img src="../assets/images/public/LB_IMG_1.jpg" width="250" class="logo">
+        </div>
+        <div class="login-panel-content">
+            <form [formGroup]='loginForm' #formDirective="ngForm">
+                <div class="ui-g">
+                    <div class="ui-g-12 space-login">
+                        <h1>CAR CONCIERGE MX</h1>
+                        <h2>Bienvenido</h2>
+                    </div>
+
+                    <div class="ui-g-12 space-bottom">
+                        <span class="ui-float-label">
+                            <input formControlName='username' id="float-input" type="text" size="30" pInputText>
+                            <label for="float-input">Usuario</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-12 space-bottom">
+                        <span class="ui-float-label">
+                            <input formControlName='nip' id="float-input" type="password" size="30" pInputText>
+                            <label for="float-input">Contraseña</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-12 space-bottom">
+                        <button (click)="iniciarSesion()" pButton type="button" label="Iniciar"
+                            ></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<app-alerta></app-alerta>

@@ -7,7 +7,7 @@ router.get('/get',GetTicket);
 /********************************************************************************************* */
 
 /*******************************Funciones BASE GET GETBYID, UPDATE ,SET*********************** */
-console.log("Routes")
+//
 
 function GetTicket(req,res){
     ticketCrtl.GetTicket()

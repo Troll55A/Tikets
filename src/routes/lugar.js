@@ -1,18 +1,20 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
-const activoCtrl = require ('../controllers/activosInventario.controller');
+const lugarCrtl = require ('../controllers/lugar.controller');
 /***************************RUTAS BASE GET,GETBYID,UPDATE,SET********************************** */
-router.get('/get',GetActivos);
+router.get('/get',GetLugar);
 /********************************************************************************************* */
 
 /*******************************Funciones BASE GET GETBYID, UPDATE ,SET*********************** */
 //
 
-function GetActivos(req,res){
-    activoCtrl.GetActivos()
+function GetLugar(req,res){
+    lugarCrtl.GetLugar()
     .then(function (result){
         res.json(result);
     })
 }
+
+
 module.exports = router;

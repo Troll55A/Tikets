@@ -18,4 +18,13 @@ api.use('/activo',activo)
 const ticket = require ('./src/routes/ticket');
 api.use('/ticket',ticket)
 
+const servicios = require ('./src/routes/servicios');
+api.use('/servicios',servicios)
+
+const lugar = require ('./src/routes/lugar');
+api.use('/lugar',lugar)
+
+const area = require ('./src/routes/area');
+api.use('/area',area)
+
 module.exports = api;

@@ -1,16 +1,16 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
-const usuarioCtrl = require ('../controllers/usuario.controller');
+const ticketCrtl = require ('../controllers/ticket.controller');
 /***************************RUTAS BASE GET,GETBYID,UPDATE,SET********************************** */
-router.get('/get',Getusuario);
+router.get('/get',GetTicket);
 /********************************************************************************************* */
 
 /*******************************Funciones BASE GET GETBYID, UPDATE ,SET*********************** */
 console.log("Routes")
 
-function Getusuario(req,res){
-    usuarioCtrl.Getusuario()
+function GetTicket(req,res){
+    ticketCrtl.GetTicket()
     .then(function (result){
         res.json(result);
     })

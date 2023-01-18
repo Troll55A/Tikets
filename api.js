@@ -15,4 +15,7 @@ api.use('/usuario',usuario)
 const activo = require ('./src/routes/activosInventario');
 api.use('/activo',activo)
 
+const ticket = require ('./src/routes/ticket');
+api.use('/ticket',ticket)
+
 module.exports = api;

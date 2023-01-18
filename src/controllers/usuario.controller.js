@@ -1,7 +1,7 @@
 'use strict'
 const usuarioModels = require ('../models/usuario.model');
 module.exports = {
-    Get: Get,
+    Getusuario: Get,
 }
 
 function Get(){

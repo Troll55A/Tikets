@@ -4,6 +4,7 @@ const router = express.Router();
 const AreaCrtl = require ('../controllers/area.controller');
 /***************************RUTAS BASE GET,GETBYID,UPDATE,SET********************************** */
 router.get('/get',fnGetArea);
+router.post('/post', fnagregaArea);
 /********************************************************************************************* */
 
 /*******************************Funciones BASE GET GETBYID, UPDATE ,SET*********************** */
@@ -16,5 +17,12 @@ function fnGetArea(req,res){
     })
 }
 
+function fnagregaArea(req, res) {
+    let datos = req.body;
+    AreaCrtl.fnagregaArea(datos)
+        .then(function (result) {
+            res.json(result);
+        });
+}
 
 module.exports = router;

@@ -1,16 +1,16 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
-const usuarioCtrl = require ('../controllers/usuario.controller');
+const rolCrtl = require ('../controllers/rol.controller');
 /***************************RUTAS BASE GET,GETBYID,UPDATE,SET********************************** */
-router.get('/get',fnGetUsuario);
+router.get('/get',fnGetRol);
 /********************************************************************************************* */
 
 /*******************************Funciones BASE GET GETBYID, UPDATE ,SET*********************** */
 //
 
-function fnGetUsuario(req,res){
-    usuarioCtrl.fnGetUsuario()
+function fnGetRol(req,res){
+    rolCrtl.fnGetRol()
     .then(function (result){
         res.json(result);
     })

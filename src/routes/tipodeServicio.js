@@ -1,20 +1,18 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
-const usuarioCtrl = require ('../controllers/usuario.controller');
+const tipodeServicioCtrl = require ('../controllers/tipodeServicio.controller');
 /***************************RUTAS BASE GET,GETBYID,UPDATE,SET********************************** */
-router.get('/get',fnGetUsuario);
+router.get('/get',fnGetTipodeServicio);
 /********************************************************************************************* */
 
 /*******************************Funciones BASE GET GETBYID, UPDATE ,SET*********************** */
 //
 
-function fnGetUsuario(req,res){
-    usuarioCtrl.fnGetUsuario()
+function fnGetTipodeServicio(req,res){
+    tipodeServicioCtrl.fnGetTipodeServicio()
     .then(function (result){
         res.json(result);
     })
 }
-
-
 module.exports = router;

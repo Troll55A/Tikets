@@ -1,11 +1,11 @@
 'use strict'
 const helpers = require('../modules/helpers');
 module.exports = {
-    Get: GetServicios,
+    fnGetServicios: fnGetServicios,
 }
 //
 //crear una funcion de get usuarios que ara una peticion a la bd
-function GetServicios(){
+function fnGetServicios(){
     
     return helpers.mysqlQuery('GET',conn_mysql,
     `SELECT * FROM servicios`

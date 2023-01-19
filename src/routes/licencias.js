@@ -1,16 +1,16 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
-const usuarioCtrl = require ('../controllers/usuario.controller');
+const licenciasCrtl = require ('../controllers/licencias.controller');
 /***************************RUTAS BASE GET,GETBYID,UPDATE,SET********************************** */
-router.get('/get',fnGetUsuario);
+router.get('/get',fnGetLicencias);
 /********************************************************************************************* */
 
 /*******************************Funciones BASE GET GETBYID, UPDATE ,SET*********************** */
 //
 
-function fnGetUsuario(req,res){
-    usuarioCtrl.fnGetUsuario()
+function fnGetLicencias(req,res){
+    licenciasCrtl.fnGetLicencias()
     .then(function (result){
         res.json(result);
     })

@@ -3,14 +3,14 @@ const express = require('express');
 const router = express.Router();
 const AreaCrtl = require ('../controllers/area.controller');
 /***************************RUTAS BASE GET,GETBYID,UPDATE,SET********************************** */
-router.get('/get',GetArea);
+router.get('/get',fnGetArea);
 /********************************************************************************************* */
 
 /*******************************Funciones BASE GET GETBYID, UPDATE ,SET*********************** */
 //
 
-function GetArea(req,res){
-    AreaCrtl.GetArea()
+function fnGetArea(req,res){
+    AreaCrtl.fnGetArea()
     .then(function (result){
         res.json(result);
     })

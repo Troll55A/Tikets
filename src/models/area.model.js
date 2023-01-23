@@ -15,14 +15,14 @@ function fnGetArea(){
 }
 
 function fnagregaArea(datos) {
-    return helpers.mysqlQuery('GET', conn_mysql,
-        `call setArea(@nombre_area)`
+    return helpers.mysqlQuery('POST', conn_mysql,
+    `INSERT INTO area(nombre_area, idlugar) VALUES (@nombre_area,@idlugar)`
     ,datos)
 }
 
 function existNomArea(datos) {
-    console.log("existNomArea",datos)
+    console.log("Existerea",datos)
     return helpers.mysqlQuery('GET', conn_mysql,
-    `call getExistNomArea(@nombre_area)`
+    `SELECT * FROM area`
     ,datos)
 }

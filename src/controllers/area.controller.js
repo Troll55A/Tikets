@@ -13,7 +13,7 @@ function fnGetArea(){
         AreaModels.fnGetArea()
         .then(function(result){
             console.log("resultado del paso 2", result)
-            resolve(!result.err ? {ok:true, usuario:result.result}: reject({ok:false, error:'Error al consultar area'}))
+            resolve(!result.err ? {ok:true, area:result.result}: reject({ok:false, error:'Error al consultar area'}))
         })
     })
 }
@@ -23,19 +23,20 @@ function fnagregaArea(datos) {
             .then(function (result) {
                 if (!result.err) {
                     if (result.result[0].length > 0) {
-                        resolve({ ok: false, mensaje: 'Ya existe un Area con este nombre' });
+                        console.log("Post", result)
+                        resolve({ ok: false, mensaje: 'Ya existe el area con este nombre' });
                     } else {
                         AreaModels.fnagregaArea(datos)
                             .then(function (result) {
                                 if (result.err) {
-                                    resolve({ ok: false, mensaje: 'No se pudo agregar el Area' });
+                                    resolve({ ok: false, mensaje: 'No se pudo agregar el area' });
                                 } else {
-                                    resolve({ ok: true, addenda: result.result[0] });
+                                    resolve({ ok: true, area: result.result[0] });
                                 }
                             });
                     }
                 } else {
-                    resolve({ ok: true, addenda: result.result[0] });
+                    resolve({ ok: true, area: result.result[0] });
                 }
             });
 

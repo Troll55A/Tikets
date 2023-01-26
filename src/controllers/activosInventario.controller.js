@@ -2,6 +2,7 @@
 const activosModels = require ('../models/activosInventario.model');
 module.exports = {
     fnGetActivos: fnGetActivos,
+    agregaActivos : agregaActivos
 }
 
 function fnGetActivos(){
@@ -14,3 +15,16 @@ function fnGetActivos(){
         })
     })
 }
+function agregaActivos(datos) {
+    return new Promise(function (resolve) {
+        activosModels.agregaActivos(datos)
+                            .then(function (result) {
+                                if (result.err) {
+                                    resolve({ ok: false, mensaje: 'No se pudo agregar el Activo' });
+                                } else {
+                                    console.log("Se agregro correctamente:", datos)
+                                    resolve({ ok: true, activos: result.result});
+                                }
+                            });
+                    })
+                }

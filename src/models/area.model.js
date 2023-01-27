@@ -15,7 +15,7 @@ function fnGetArea(){
 }
 
 function fnagregaArea(datos) {
-    console.log("👀",datos)
+    console.log("🔑",datos)
     return helpers.mysqlQuery('POST', conn_mysql,
     `call setArea(@nombre_area,@idlugar)`
     ,datos)

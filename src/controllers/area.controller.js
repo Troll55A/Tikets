@@ -22,12 +22,13 @@ function fnGetArea(){
 }
 function fnagregaArea(datos){
     return new Promise(function (resolve) {
-        AreaModels.fnagregaArea(datos)
+        AreaModels.existNomArea(datos)
             .then(function (result) {
-                if (result.err) {
-                    resolve({ ok: false, error: '------nel' });
+                console.log("👀",result.result[1])
+                if (result.result[1]) {
+                    resolve({ ok: false, error: 'No se inserto' });
                 } else {
-                    resolve({ ok: true, area: result.result });
+                    resolve({ ok: true, Error: result.result[0] });
                 }
             });
     });

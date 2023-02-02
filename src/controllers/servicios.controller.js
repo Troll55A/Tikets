@@ -2,6 +2,7 @@
 const serviciosModels = require ('../models/servicios.model');
 module.exports = {
     fnGetServicios: fnGetServicios,
+    setServicios:setServicios
 }
 
 function fnGetServicios(){
@@ -14,4 +15,17 @@ function fnGetServicios(){
             resolve(!result.err ? {ok:true, usuario:result.result}: reject({ok:false, error:'Error al consultar Servicios'}))
         })
     })
+}
+function setServicios(datos){
+    return new Promise(function (resolve) {
+        serviciosModels.existNomServicios(datos)
+            .then(function (result) {
+                console.log("👀",result.result[1])
+                if (result.result[1]) {
+                    resolve({ ok: false, error: 'Ya Existe' });
+                } else {
+                    resolve({ ok: true, Error: result.result[0] });
+                }
+            });
+    });
 }

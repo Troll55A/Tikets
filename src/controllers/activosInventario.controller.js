@@ -15,16 +15,16 @@ function fnGetActivos(){
         })
     })
 }
-function agregaActivos(datos) {
+function agregaActivos(datos){
     return new Promise(function (resolve) {
-        activosModels.agregaActivos(datos)
-                            .then(function (result) {
-                                if (result.err) {
-                                    resolve({ ok: false, mensaje: 'No se pudo agregar el Activo' });
-                                } else {
-                                    console.log("Se agregro correctamente:", datos)
-                                    resolve({ ok: true, activos: result.result});
-                                }
-                            });
-                    })
+        activosModels.nomEquipo(datos)
+            .then(function (result) {
+               // console.log("👀",result.result[1])
+                if (result.result[1]) {
+                    resolve({ ok: false, error: 'Ya Existe' });
+                } else {
+                    resolve({ ok: true, Mensaje: result.result[0] });
                 }
+            });
+    });
+}

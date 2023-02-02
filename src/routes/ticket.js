@@ -4,6 +4,7 @@ const router = express.Router();
 const ticketCrtl = require ('../controllers/ticket.controller');
 /***************************RUTAS BASE GET,GETBYID,UPDATE,SET********************************** */
 router.get('/get',fnGetTicket);
+router.post('/post', setTicket);
 /********************************************************************************************* */
 
 /*******************************Funciones BASE GET GETBYID, UPDATE ,SET*********************** */
@@ -15,6 +16,12 @@ function fnGetTicket(req,res){
         res.json(result);
     })
 }
-
+function setTicket(req, res) {
+    let datos = req.body;
+    ticketCrtl.setTicket(datos)
+        .then(function (result) {
+            res.json(result);
+        });
+}
 
 module.exports = router;

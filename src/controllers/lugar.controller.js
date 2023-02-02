@@ -2,6 +2,7 @@
 const lugarModels = require ('../models/lugar.model');
 module.exports = {
     fnGetLugar: fnGetLugar,
+    setLugar:setLugar
 }
 
 function fnGetLugar(){
@@ -14,4 +15,17 @@ function fnGetLugar(){
             resolve(!result.err ? {ok:true, usuario:result.result}: reject({ok:false, error:'Error al consultar lugar'}))
         })
     })
+}
+function setLugar(datos){
+    return new Promise(function (resolve) {
+        lugarModels.existNomLugar(datos)
+            .then(function (result) {
+                console.log("👀",result.result[1])
+                if (result.result[1]) {
+                    resolve({ ok: false, error: 'Ya Existe' });
+                } else {
+                    resolve({ ok: true, Error: result.result[0] });
+                }
+            });
+    });
 }

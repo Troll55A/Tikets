@@ -2,6 +2,7 @@
 const rolModels = require ('../models/rol.model');
 module.exports = {
     fnGetRol: fnGetRol,
+    setRol:setRol
 }
 
 function fnGetRol(){
@@ -14,4 +15,17 @@ function fnGetRol(){
             resolve(!result.err ? {ok:true, usuario:result.result}: reject({ok:false, error:'Error al consultar rol'}))
         })
     })
+}
+function setRol(datos){
+    return new Promise(function (resolve) {
+        rolModels.existNomRol(datos)
+            .then(function (result) {
+                console.log("👀",result.result[1])
+                if (result.result[1]) {
+                    resolve({ ok: false, error: 'Ya Existe' });
+                } else {
+                    resolve({ ok: true, Error: result.result[0] });
+                }
+            });
+    });
 }

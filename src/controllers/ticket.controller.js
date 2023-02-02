@@ -2,6 +2,7 @@
 const ticketModels = require ('../models/ticket.model');
 module.exports = {
     fnGetTicket: fnGetTicket,
+    setTicket:setTicket
 }
 
 function fnGetTicket(){
@@ -14,4 +15,17 @@ function fnGetTicket(){
             resolve(!result.err ? {ok:true, usuario:result.result}: reject({ok:false, error:'Error al consultar Ticket'}))
         })
     })
+}
+function setTicket(datos){
+    return new Promise(function (resolve) {
+        ticketModels.existNomTicket(datos)
+            .then(function (result) {
+                console.log("👀",result.result[1])
+                if (result.result[1]) {
+                    resolve({ ok: false, error: 'Ya Existe' });
+                } else {
+                    resolve({ ok: true, Error: result.result[0] });
+                }
+            });
+    });
 }
